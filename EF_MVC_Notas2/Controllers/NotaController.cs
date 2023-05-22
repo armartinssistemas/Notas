@@ -49,7 +49,7 @@ namespace EF_MVC_Notas2.Controllers
         }
 
         [HttpPost]
-        public IActionResult Salvar(int IdProfessor, int IdMatricula, float? Nota1, float? Nota2)
+        public IActionResult Salvar(int IdMatricula, float? Nota1, float? Nota2)
         {
             if (Nota1 == null)
             {
@@ -61,7 +61,6 @@ namespace EF_MVC_Notas2.Controllers
             }
             if (ModelState.IsValid)
             {
-                Pessoa professor = Pessoa.GetById(_conexao, IdProfessor);
                 Matricula matricula = Matricula.GetById(_conexao, IdMatricula);
                 matricula.SetNota(_conexao, Nota1.Value, Nota2.Value);
 
