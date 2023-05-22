@@ -1,0 +1,25 @@
+﻿@using Domain.Domain;
+
+<form asp-controller="Nota" asp-action="Alunos">
+    <div class="form-group">
+        <label>Professor: </label>
+        <label>@ViewBag.Professor.Nome</label>
+    </div>
+    <div class="form-group">
+        <label>Escolhe a Disciplina: </label>
+        <select name="IdDisciplina" class="form-control">
+            <option></option>
+            @foreach (Disciplina d in ViewBag.Disciplinas)
+            {
+                    <option value="@d.Id">@d.Nome</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">
+            Selecionar
+        </button>
+    </div>
+
+</form>
+

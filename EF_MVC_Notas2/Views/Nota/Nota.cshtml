@@ -1,0 +1,33 @@
+﻿@model Domain.Domain.Nota;
+
+<form asp-controller="Nota" asp-action="Salvar">
+    <div>
+        <input type="hidden" name="IdMatricula" value="@ViewBag.Matricula.Id"/>
+    </div>
+    <div class="form-group">
+        <label>Professor: </label>
+        <label>@ViewBag.Matricula.Professor.Nome</label>
+        <input type="hidden" name="IdProfessor" value="@ViewBag.Matricula.Professor.Id" />
+    </div>
+    <div class="form-group">
+        <input type="hidden" name="IdAluno" value="@ViewBag.Matricula.Aluno.Id"/>
+        <label>Aluno: </label>
+        <label>@ViewBag.Matricula.Aluno.Nome</label>
+    </div>
+    <div class="form-group">
+        <label>Nota 1</label>
+        <input asp-for="Nota1" class="form-control"/>
+        <span asp-validation-for="Nota1" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Nota 2</label>
+        <input asp-for="Nota2" name="Nota2" class="form-control"/>
+        <span asp-validation-for="Nota2" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">
+            Salvar
+        </button>
+    </div>
+
+</form>

@@ -1,0 +1,50 @@
+﻿@using Domain.Domain;
+
+@{
+    ViewData["Title"] = "Alunos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Alunos</h1>
+<h2>Disciplina: @ViewBag.NomeDisciplina</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nome
+            </th>
+            <th>
+                Nota 1
+            </th>
+            <th>
+                Nota 1
+            </th>
+            <th>
+                Média
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (Matricula item in ViewBag.Matriculas) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Aluno.Nome)
+            </td>
+            <td>
+                @if(item.Nota != null){@item.Nota.Nota1.Value.ToString("0.00");}
+            </td>
+            <td>
+                @if(item.Nota != null){@item.Nota.Nota2.Value.ToString("0.00");}
+            </td>
+            <td>
+                @if(item.Nota != null){@item.Nota.Media().ToString("0.00");;}
+            </td>
+            <td>
+                @Html.ActionLink("Nota", "Nota", new { IdMatricula=item.Id }) 
+            </td>
+        </tr>
+    }  
+    </tbody>
+</table>

@@ -1,0 +1,52 @@
+﻿@model Domain.Domain.Usuario
+@{
+    ViewData["Title"] = "Sistema Notas";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login (Notas)</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <div class="container" style="margin-top: 50px">
+    <form asp-controller="Home" asp-action="Logar">
+        <div class="row form-group">
+            <div class="col-4 offset-4" class="text-danger"> 
+                @Html.ValidationSummary(true, "", new { @style = "color: red" })
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-4 offset-4"> 
+                <label>Login</label>
+                <input asp-for="Login" class="form-control"/>
+                <span asp-validation-for="Login" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-4 offset-4"> 
+                <label>Senha</label>
+                <input type="password" asp-for="Senha"  class="form-control"/>
+                <span asp-validation-for="Senha" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-4 offset-4">
+                <button type="submit" class="btn btn-primary">Entrar</button>
+            </div>
+        </div>
+    </form>
+    </div>
+
+    
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>
+

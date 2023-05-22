@@ -1,0 +1,17 @@
+﻿@model Domain.Domain.Disciplina
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Disciplina</h1>
+
+<h3>Você tem certeza que deseja remover a disciplina @Model.Nome?</h3>
+<div> 
+    <form asp-controller="Disciplina" asp-action="Delete">
+        <input type="hidden" name="Id" value="@Model.Id" />
+        <input type="submit" value="Remover" class="btn btn-danger" /> |
+        <a asp-action="Index">Cancelar</a>
+    </form>
+</div>
